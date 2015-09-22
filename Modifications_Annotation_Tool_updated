@@ -1,0 +1,89 @@
+Modifications in Annotation Tool:
+
+------------------------------------------------------------------------
+Fixed bugs - Revision 1
+------------------------------------------------------------------------
+1) After "plane segmentation" when the segmented table is saved, the tool should save .PCD and linked .XML file
+
+2) When selecting points for object annotation/ manual plane selection, if a wrong point is selected, the action cannot be undone
+
+3) The "Add-new-object" dialogue pops up a possible list of objects. ::remThe objects can appear in the order of the number of times they  have been annotated or meddled with in the given scenes. Most often at the top of the list. Or sort alphabetically.
+
+4) PCD file is saved in ASCII format, it is better to store it in the binary format.
+
+5) There could be an option to change the position of the origin of the scene according to the user's fancy. It could be at the center of a room and it could be at the very extreme corners of the scene. - translate origin
+
+6) When "Add-new-object" action is done, a pop up list appears to select name of object. It would be nice to have only an input text box in which the user starts to key in the name of the object and closest matches start to appear for selection. If no closest match, then it is added to the list of objects automatically.
+eg. 
+box - [            ]
+suggestions:
+
+
+box - [ pape           ]
+suggestions:Papers
+			Papers_1
+			Papers_2
+(observe character upper/lower case)
+
+box - [ bo           ]
+suggestions:Book
+			Book_1
+			Notebook
+			Notebook_1
+			
+7) When adding a new object to the list, there could be a check for the naming convention and/or check against the english dictionary or it's subset for valid objects.
+
+8) Once the coordinate system is fixed to the lower left corner of the "Table" the rest of the point cloud is chopped off. The point cloud thus lives only in the X+ Y+ and Z+ domain. Maybe the coordinate axes could be placed on a plane such that the point cloud can live in all subspaces. No chopping of point clouds is needed - the axis can simply be placed. i.e. No need for plane segmentation.
+
+9) Whenever a set of points are selected they are highlighted by yellow balls, one per point. When a bunch of points are selected (Plane detection/ Bbox specification stages) the last yellow ball is not rendered - Pause and render
+
+10) When the points selected in the PCD (Plane detection/ bbox specification stages), if the points are too close to eachother, they jump and converge onto the same point, thereby providing zero thickness or no plane. - Can be fixed by undo option
+
+
+------------------------------------------------------------------------
+Required fixes - Revision 2
+------------------------------------------------------------------------
+1) Add UNDO functionality at every point within steps (max 3 substeps)
+
+
+------------------------------------------------------------------------
+Need to check - AK
+------------------------------------------------------------------------
+
+1) When a point is selected it is highlighted in yellow - which is another ball structure. This ball structure could be better.
+
+2) Subsampling the point cloud leads to an explosion of the point cloud. There is an error in functionality here.
+
+3) The z coordinate is never reset. If object A is annotated at X = 0.04 Y = 0.2 Z = 0.08, saved and then another object B is annotated, regardless of where it actually is along the Z axis, the value in the box is always Z = 0.08
+
+4) When "Add-new-object" is selected there is an instruction dialogue box, if this dialogue is dismissed quickly then the previous object's box is rendered immediately. - Not critical
+
+
+------------------------------------------------------------------------
+Required fixes, because they are annoying:
+------------------------------------------------------------------------
+1) Flipping around in view - Whenever the point cloud is re-rendered, the view is not preserved. It would be nice to see the changes in the same view as it was left. Eg. Plane detection interaction is done from the top view and particular amount of zoom by the user. when the plane is actually detected the point cloud is re-rendered such that the X-Y axes are on the detected plane, however the view is distorted and the user has to re-zoom and tilt and pan to re-obtain the top-view. - Ask Johan 
+
+2) Big PCD file --> subsampled small PCD file (for viewing) --> functionalities, but reflected and saved on the Big PCD file. Also provide the option for the user to save big and small PCD file.
+
+
+------------------------------------------------------------------------
+Required fixes but are not as annoying:
+------------------------------------------------------------------------
+1) Documentation needs improvement. 
+
+
+---------------------------------------------------------------------------------------------------
+It would be nice to have these improvements, it would make it fancier - Graphics options in PCL
+---------------------------------------------------------------------------------------------------
+1) Selection of concave objects-in a better way, maybe in 2 ways - maximum bounding box and some contour method.
+
+2) Annotation can be done using lines. Draw lines on the object wherever there are points and these lines are higlighted. Once all line segments are drawn a maximum containing bounding box can be drawn.
+
+3) Colouring type annotation: The user simply holds down the left click and colours on the object (feedback can be colouring of the corresponding points in bright pink). Once the colouring is completed, the maximum bounding box is drawn around the object.
+
+4) Drawing a box type annotation: The user can use this functionality like MS Paint or MS Power Point. In these softwares, if a circle or square needs to be drawn, it is selected and then the cursor is placed on the canvas and clicked, holding click the mouse is dragged to increase and decrease the size of the planar figure along the X and Y directions. The same can be done here for 3D bounding boxes which need to be drawn around objects.
+
+5) The annotation can automatically fit a best bounding box. Click to select one edge, then keep clicking extreme points that definitely need to be in the box. Once user is satisfied, calculate and draw the best bounding box.
+
+6) Rendering of the point cloud at every step of functionality need not happen : need a work around. Render viewpoint than .PCD - less things to render.

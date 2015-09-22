@@ -1,0 +1,35 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Actions-document-open-folder-icon.png</file>
+        <file>Actions-document-save-all-icon.png</file>
+        <file>Actions-document-save-as-icon.png</file>
+        <file>confirm.gif</file>
+        <file>coordinate_system.png</file>
+        <file>delete.png</file>
+        <file>desk.png</file>
+        <file>down.png</file>
+        <file>downsample.png</file>
+        <file>export.png</file>
+        <file>icons.qrc</file>
+        <file>import.png</file>
+        <file>left.png</file>
+        <file>less.png</file>
+        <file>pencil.png</file>
+        <file>plus.png</file>
+        <file>pointPicking.png</file>
+        <file>right.png</file>
+        <file>rotate.png</file>
+        <file>rot_left.png</file>
+        <file>rot_right.png</file>
+        <file>Segment.png</file>
+        <file>shiftOrg.png</file>
+        <file>undo_icon.png</file>
+        <file>up.png</file>
+        <file>viewAbove.png</file>
+        <file>viewBack.png</file>
+        <file>viewFront.png</file>
+        <file>viewLeft.png</file>
+        <file>viewRight.png</file>
+        <file>X-Y-Z.ico</file>
+    </qresource>
+</RCC>

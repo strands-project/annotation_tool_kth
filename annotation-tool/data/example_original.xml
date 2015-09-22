@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<scenario>
+   <type>table</type>
+   <annotatedFrom>.pcd</annotatedFrom>
+   <dimensions>
+      <length>1.238728</length>
+      <width>0.7586715</width>
+   </dimensions>
+   <allObjects>
+      <numberOfObjects>0</numberOfObjects>
+   </allObjects>
+</scenario>

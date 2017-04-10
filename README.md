@@ -28,4 +28,6 @@ The objects annotated are stored together per scene in their XML file. They reco
 - minimum oriented bounding box
 - comprising pixel indices in 3D
 - length, breadth, height 
+
+
 The tool also allows for loading a previous annotation and modifying it.
